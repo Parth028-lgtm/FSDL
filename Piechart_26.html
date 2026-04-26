@@ -1,34 +1,45 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            body{
-                text-align:Center;
-                font-family: sans-serif;
-                padding: 40px;
-            }
-            canvas{
-                max-width: 400px;
-                margin: auto;
-            }
-        </style>
-    </head>
-    <body>
-        <h2>Attendance</h2>
-        <canvas id=""chart"></canvas>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            new Chart(chart,{
-                type: 'pie',
-                data:{
-                    labels: ['prsent','absent','leave'],
-                    datasets:[{
-                        data: [70,20,10],
-                        background:['green','red','orange']
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PieChart</title>
+  </head>
+  <body>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      canvas {
+        display: block;
+        margin: 20px;
+      }
+      .chart {
+        height: 400px;
+        width: 400px;
+      }
+    </style>
+    <h1>Attendence Distribution</h1>
 
-                    }]
-                }
-            });
-        </script>
-    </body>
+    <div class="chart">
+      <canvas id="PiieChart"></canvas>
+    </div>
+
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+
+    <script>
+      new Chart(document.getElementById("PiieChart"), {
+        type: "pie",
+        data: {
+          labels: ["Present", "Absent", "Leave"],
+          datasets: [
+            {
+              data: [70, 20, 10],
+              backgroundColor: ["red", "yellow", "skyblue"],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
 </html>

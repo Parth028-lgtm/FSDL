@@ -1,35 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <style>
-            body{
-                text-align: center;
-                font-family: sans-serif;
-                padding: 40px;
-            }
-            canvas{
-                max-width: 500px;
-                margin: auto;
-            }
-        </style>
-    </head>
-    <body>
-        <h2> Students Per Department</h2>
-        <canvas id="chart"></canvas>
+  <head>
+    <title>Bar Chart</title>
+  </head>
+  <body>
+    <h2>Students in Departments</h2>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            new Chart(chart,{
-                type:'bar',
-                data:{
-                    lables:['cs','it','mech','civil'],
-                    datasets:[{
-                        label: 'studnets',
-                        data:[120,80,60,60],
-                        backgroundColor:['red','blue','green','orange','purple']
-                    }]
-                }
-            });
-        </script>
-    </body>
+    <canvas id="barchart"></canvas>
+
+    <!-- Move both scripts to bottom -->
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+    <script>
+      console.log("JS Loaded"); // debug
+
+      new Chart(document.getElementById("barchart"), {
+        type: "bar",
+        data: {
+          labels: ["Computer", "IT", "ENTC", "Civil"],
+          datasets: [
+            {
+              label: "Students",
+              data: [50, 40, 30, 20],
+              backgroundColor: ["blue", "green", "red", "orange"],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
 </html>
