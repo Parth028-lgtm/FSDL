@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Quiz</h2>
+
+<form id="quiz">
+
+<p>1. Capital of India?</p>
+<input type="radio" name="q1" value="Delhi"> Delhi<br>
+<input type="radio" name="q1" value="Mumbai"> Mumbai<br>
+
+<p>2. 2 + 2 = ?</p>
+<input type="radio" name="q2" value="4"> 4<br>
+<input type="radio" name="q2" value="5"> 5<br>
+
+<p>3. HTML stands for?</p>
+<input type="radio" name="q3" value="Hyper"> Hyper Text Markup Language<br>
+<input type="radio" name="q3" value="High"> High Text Machine Language<br>
+
+</form>
+
+<button onclick="submitQuiz()">Submit</button>
+
+<h3 id="result"></h3>
+
+<script>
+function submitQuiz() {
+  let score = 0;
+
+  let q1 = document.querySelector('input[name="q1"]:checked');
+  let q2 = document.querySelector('input[name="q2"]:checked');
+  let q3 = document.querySelector('input[name="q3"]:checked');
+
+  if(q1 && q1.value == "Delhi") score++;
+  if(q2 && q2.value == "4") score++;
+  if(q3 && q3.value == "Hyper") score++;
+
+  document.getElementById("result").innerText = "Score: " + score;
+}
+</script>
+
+</body>
+</html>

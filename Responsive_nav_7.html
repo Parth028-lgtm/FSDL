@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+nav {
+  background: black;
+  color: white;
+  padding: 10px;
+}
+
+a {
+  color: white;
+  display: block;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+/* hidden menu */
+#menu {
+  display: none;
+}
+
+/* responsive (mobile) */
+@media (min-width: 600px) {
+  #menu {
+    display: block;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <b>MyBrand</b>
+  <button onclick="toggle()">Menu</button>
+
+  <div id="menu">
+    <a href="#">Home</a>
+
+    <!-- dropdown -->
+    <a href="#" onclick="drop()">Services ▼</a>
+    <div id="drop" style="display:none; margin-left:10px;">
+      <a href="#">Web</a>
+      <a href="#">App</a>
+    </div>
+
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<script>
+function toggle() {
+  let m = document.getElementById("menu");
+  m.style.display = (m.style.display == "block") ? "none" : "block";
+}
+
+function drop() {
+  let d = document.getElementById("drop");
+  d.style.display = (d.style.display == "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

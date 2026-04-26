@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Profile Preview</h2>
+
+<input id="name" placeholder="Name" oninput="update()"><br><br>
+<input id="role" placeholder="Role" oninput="update()"><br><br>
+
+<h3>Preview</h3>
+
+<p id="n">Name</p>
+<p id="r">Role</p>
+
+<script>
+function update() {
+  document.getElementById("n").innerText =
+    document.getElementById("name").value;
+
+  document.getElementById("r").innerText =
+    document.getElementById("role").value;
+}
+</script>
+
+</body>
+</html>
