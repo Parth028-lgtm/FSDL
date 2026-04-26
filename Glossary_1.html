@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Glossary</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+            width: 250px;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>HTML Tag Glossary</h2>
+
+<!-- Search -->
+<input type="text" id="search" placeholder="Search..." onkeyup="filterTable()">
+
+<!-- Table -->
+<table id="myTable">
+    <tr>
+        <th>Tag</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td>&lt;b&gt;</td>
+        <td>Bold text</td>
+    </tr>
+
+    <tr>
+        <td>&lt;i&gt;</td>
+        <td>Italic text</td>
+    </tr>
+
+    <tr>
+        <td>&lt;u&gt;</td>
+        <td>Underline text</td>
+    </tr>
+
+    <tr>
+        <td>&lt;p&gt;</td>
+        <td>Paragraph</td>
+    </tr>
+
+    <tr>
+        <td>&lt;a&gt;</td>
+        <td>Hyperlink</td>
+    </tr>
+
+</table>
+
+<script>
+
+function filterTable() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let rows = document.querySelectorAll("#myTable tr");
+
+    rows.forEach(function(row, index) {
+        if (index === 0) return; // skip header
+
+        let text = row.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+
+</script>
+
+</body>
+</html>

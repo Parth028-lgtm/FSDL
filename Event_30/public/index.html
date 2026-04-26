@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                padding:40px;
+                font-family:sans-serif;
+            }
+            input{
+                display: block;
+                padding:40px;
+                margin:5px 0;
+                width:250px;
+            }
+            button{
+                padding: 10px 20px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            li{
+                font-size: 18px;
+                margin: 5px 0;
+            }
+
+        </style>
+        <body>
+            <h2>Event Registration</h2>
+            <input id="sname" placeholder="Name">
+            <input id="email" placeholder="email">
+            <input id="eventname" placeholder="'event name">
+
+            <button onclick="add()">Register</button>
+            <button onclick="view()">View</button>
+
+            <ul id="list"></ul>
+            
+            <script>
+                async function add(){
+                    await fetch('/add',{
+                      method: 'POST',
+                      header:{'Content-Type': 'application/json'},
+                      body: JSON.stringify({
+                        name: sname.value,
+                        email: email.value,
+                        eventname: eventname.value
+                      })  
+                    });
+                    alert('Registered');
+                }
+
+                async function view(){
+                    let data = await fetch('/all').then(r => r.json());
+                    list.innerHTML = '';
+                    data.forEach(e => {
+                        list.innerHTML += '<li>${e.email} | ${e.eventname}</li>';
+                    });
+                }
+            </script>
+
+        </body>
+    </head>
+</html>

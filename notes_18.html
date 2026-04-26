@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { text-align: center; font-family: sans-serif; padding: 40px; }
+    textarea { width: 300px; height: 100px; padding: 10px; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    .note { border: 1px solid #ccc; padding: 10px; margin: 10px auto; width: 300px; }
+    .del { background: red; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h2>Notes App</h2>
+  <textarea id="inp" placeholder="Write note..."></textarea>
+  <br>
+  <button onclick="add()">Add Note</button>
+  <div id="list"></div>
+
+  <script>
+    function add() {
+      let note = inp.value;
+      if (!note) return;
+      list.innerHTML += `
+        <div class="note">
+          ${note}
+          <button class="del"
+          onclick="this.parentElement.remove()">X</button>
+        </div>`;
+      inp.value = "";
+    }
+  </script>
+
+</body>
+</html>

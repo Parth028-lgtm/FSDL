@@ -1,0 +1,36 @@
+<!DOCTYPE htl>
+<html>
+    <head>
+        <style>
+            body{ text-align: center;
+                font-family: sans-serif;
+                padding: 30px;
+            }
+            input{
+                padding:20px;
+                width: 300px;
+
+            }
+            button{
+                padding: 10px;
+                cursor: pointer;
+
+            }
+        </style>
+    </head>
+    <body>
+        <h2>TO-Do list</h2>
+        <input id="inp" placeholder=" Enter task">
+        <button onclick="add()">add</button>
+        <ul id = "list"></ul>
+        <script>
+            function add(){
+            let task = inp.value;
+            if(!task) return;
+            list.innerHTML += `<li> ${task} <button onclick="this.parentElement.remove()">X</button> </li>`;
+            inp.value = "";
+        }
+
+        </script>
+    </body>
+</html>

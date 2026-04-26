@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; padding: 40px; max-width: 500px; margin: auto; }
+    .question { background: #333; color: white; padding: 15px; cursor: pointer; margin-top: 5px; }
+    .answer { display: none; padding: 15px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <h2>FAQ</h2>
+
+  <div class="question" onclick="toggle('a1')">What is HTML?</div>
+  <div class="answer" id="a1">HTML is the structure of webpages.</div>
+
+  <div class="question" onclick="toggle('a2')">What is CSS?</div>
+  <div class="answer" id="a2">CSS is used to style webpages.</div>
+
+  <div class="question" onclick="toggle('a3')">What is JavaScript?</div>
+  <div class="answer" id="a3">JS makes webpages interactive.</div>
+
+  <script>
+    function toggle(id) {
+      let ans = document.getElementById(id);
+      if (ans.style.display == 'block') {
+        ans.style.display = 'none';
+      } else {
+        ans.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>

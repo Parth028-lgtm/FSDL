@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            width: 150px;
+        }
+
+        button {
+            padding: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Product Gallery</h2>
+
+<div class="container" id="products"></div>
+
+<script>
+
+// JSON Data
+let data = [
+    { name: "Phone", price: 20000 },
+    { name: "Laptop", price: 50000 },
+    { name: "Headphones", price: 2000 }
+];
+
+// Display products
+let container = document.getElementById("products");
+
+data.forEach(function(item) {
+
+    let card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+        <h3>${item.name}</h3>
+        <p>₹${item.price}</p>
+        <button onclick="buy('${item.name}')">Buy Now</button>
+    `;
+
+    container.appendChild(card);
+});
+
+// Buy button function
+function buy(name) {
+    alert(name + " added to cart!");
+}
+
+</script>
+
+</body>
+</html>

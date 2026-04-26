@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                text-align:Center;
+                font-family: sans-serif;
+                padding: 40px;
+            }
+            canvas{
+                max-width: 400px;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Attendance</h2>
+        <canvas id=""chart"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            new Chart(chart,{
+                type: 'pie',
+                data:{
+                    labels: ['prsent','absent','leave'],
+                    datasets:[{
+                        data: [70,20,10],
+                        background:['green','red','orange']
+
+                    }]
+                }
+            });
+        </script>
+    </body>
+</html>

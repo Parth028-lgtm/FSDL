@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                padding: 40px;
+                font-family: sans-serif;
+            }
+            input{
+                display: block;
+                padding: 10px;
+                margin: 5px 0;
+                width: 250px;
+            }
+            button{
+                padding: 10px 20px;
+                margin: 5px;
+                cursor:pointer;
+            }
+            li{
+                font-size: 18px;
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h2> Student Record</h2>
+        <input id="sname" placeholder="Name">
+        <input id="rollno" placeholder="Rollno">
+        <input id="branch" placeholder="branch">
+
+        <button onclick = "add()">Add</button>
+        <button onclick = "view()"> view all</button>
+
+        <ul id="list"></ul>
+        <script>
+         async function add() {
+            await fetch('/add', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    name: sname.value,
+                    rollno: rollno.value,
+                    branch: branch.value
+                })
+    });
+    alert('Student Added!');
+}
+
+        async function view() {
+            let data = await fetch('/all').then(r => r.json());
+            list.innerHTML = '';
+            data.forEach(s => {
+                list.innerHTML += `<li>${s.name} | ${s.rollno} | ${s.branch}</li>`;
+            });
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                text-align:center;
+                font-family: sans-serif;
+                padding: 40px;
+            }
+            button{
+                padding: 10px 20px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            .item{
+                display: inline-block;
+                border: 1px solid white;
+                padding: 15px;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2> Product Filter</h2>
+        <button onclick="filter('all')">All</button>
+        <button onclick="filter('phone')">Phones</button>
+        <button onclick="filter('laptop')">Laptop</button>
+
+        <div id="list"></div>
+
+        <script>
+            let products = [
+                {name: 'iphone', cat: 'phone', price: 100000},
+                {name: 'dell_g15', cat: 'laptop', price: 150000},
+
+            ];
+
+            function filter(cat){
+                let filtered = cat =='all'?products:
+                products.filter(p => p.cat ==cat);
+                list.innerHTML = '';
+                filtered.forEach(p => {
+                    list.innerHTML += `
+                    <div class="item">
+                        <h3>${p.name}</h3>
+                        <p>${p.price}</p></div>`
+                });
+            }
+            filter('all');
+        </script>
+    </body>
+</html>

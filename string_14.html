@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                text-align: center;
+                font-family: sans-serif;
+                padding: 30px;
+            }
+            input{
+                padding: 20px;
+                width: 300px;
+            }
+            button{
+                padding: 10px;
+                margin: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h2> String Operations</h2>
+        <input id="inp" placeholder = "Enter text">
+        <br><br>
+        <button onclick=" run('rev')">Reverse</button>
+        <button onclick="run('upper')">Upper</button>
+        <button onclick="run('low')">lower</button>
+        <button onclick="run('len')">Length</button>
+
+        <h3 id="result">Result appears here</h3>
+        <script>
+            function run(type){
+                let val = inp.value;
+                if(type == 'rev')
+                    result.innerHTML = val.split('').reverse().join('');
+                if(type == 'upper')
+                    result.innerHTML = val.touppercase();
+                if(type == 'low')
+                    result.innerHTML = val.tolowercase();
+                if(type == 'len')
+                    result.innerHTML = "Length" + val.length;
+            }
+            </script>
+    </body>
+</html>

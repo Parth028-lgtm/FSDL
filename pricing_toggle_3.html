@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing Toggle</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            border: 1px solid black;
+            padding: 20px;
+            margin: 10px;
+            width: 150px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Pricing Plans</h1>
+
+<!-- Toggle Button -->
+<button onclick="togglePrice()">Switch to Yearly</button>
+
+<div class="plans">
+
+    <div class="card">
+        <h2>Basic</h2>
+        <p id="basic">₹500/month</p>
+    </div>
+
+    <div class="card">
+        <h2>Pro</h2>
+        <p id="pro">₹1000/month</p>
+    </div>
+
+    <div class="card">
+        <h2>Premium</h2>
+        <p id="premium">₹1500/month</p>
+    </div>
+
+</div>
+
+<script>
+let yearly = false;
+
+function togglePrice() {
+
+    let basic = document.getElementById("basic");
+    let pro = document.getElementById("pro");
+    let premium = document.getElementById("premium");
+    let btn = document.querySelector("button");
+
+    if (!yearly) {
+        basic.innerText = "₹5000/year";
+        pro.innerText = "₹10000/year";
+        premium.innerText = "₹15000/year";
+
+        btn.innerText = "Switch to Monthly";
+        yearly = true;
+
+    } else {
+        basic.innerText = "₹500/month";
+        pro.innerText = "₹1000/month";
+        premium.innerText = "₹1500/month";
+
+        btn.innerText = "Switch to Yearly";
+        yearly = false;
+    }
+}
+</script>
+
+</body>
+</html>

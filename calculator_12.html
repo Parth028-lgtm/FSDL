@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                font-family : sans-serif;
+                padding: 30px;
+
+            }
+            .box{
+                border: 1px solid #eee;
+                border-radius: 5px;
+                padding: 20px;
+
+            }
+            input{
+                width: 100%;
+                padding: 10px;
+                font-size: 18px;
+                text-align: right;
+                margin-bottom: 10px;
+            }
+            button{
+                width: 23%;
+                padding: 10px;
+                font-size : 18px;
+                margin: 3px;
+                cursor: pointer;
+            }
+            .clear{
+                width: 100%;
+                background: blue;
+                color: white;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class ="box">
+            <h2> Calculator</h2>
+            <input id="inp" readonly>
+            <button onclick="add('1')">1</button>
+            <button onclick="add('2')">2</button>
+            <button onclick="add('3')">3</button>
+            <button onclick="add('+')">+</button>
+            <button onclick="add('4')">4</button>
+            <button onclick="add('5')">5</button>
+            <button onclick="add('6')">6</button>
+            <button onclick="add('-')">-</button>
+            <button onclick="add('7')">7</button>
+            <button onclick="add('8')">8</button>
+            <button onclick="add('9')">9</button>
+            <button onclick="add('*')">×</button>
+            <button onclick="add('0')">0</button>
+            <button onclick="add('/')">÷</button>
+            <button onclick="calc()">=</button>
+                
+        <button class = 'clear'
+        onclick="inp.value=''">Clear</button>
+         </div>
+         <script>
+            function add(val){
+               inp.value += val;
+            }
+            function calc(val){
+                inp.value = eval(inp.value);
+            }
+         </script>
+    </body>
+</html>

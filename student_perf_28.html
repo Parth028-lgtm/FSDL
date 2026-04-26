@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h2>Student Performance Dashboard</h2>
+
+<!-- Charts -->
+<canvas id="marksChart"></canvas>
+<canvas id="attendanceChart"></canvas>
+<canvas id="progressChart"></canvas>
+
+<script>
+
+// 🔹 Bar Chart (Marks)
+new Chart(document.getElementById("marksChart"), {
+    type: 'bar',
+    data: {
+        labels: ['Math', 'OS', 'DBMS', 'CN'],
+        datasets: [{
+            label: 'Marks',
+            data: [80, 75, 85, 70],
+            backgroundColor: ['red','blue','green','orange']
+        }]
+    }
+});
+
+// 🔹 Pie Chart (Attendance)
+new Chart(document.getElementById("attendanceChart"), {
+    type: 'pie',
+    data: {
+        labels: ['Present', 'Absent'],
+        datasets: [{
+            data: [90, 10],
+            backgroundColor: ['green','red']
+        }]
+    }
+});
+
+// 🔹 Line Chart (Progress)
+new Chart(document.getElementById("progressChart"), {
+    type: 'line',
+    data: {
+        labels: ['Test1','Test2','Test3'],
+        datasets: [{
+            label: 'Progress',
+            data: [60, 70, 80],
+            borderColor: 'blue'
+        }]
+    }
+});
+
+</script>
+
+</body>
+</html>

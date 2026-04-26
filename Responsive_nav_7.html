@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    nav { background: #333; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+    nav a { color: white; text-decoration: none; margin: 0 10px; }
+    .menu { display: none; flex-direction: column; background: #333; }
+    .menu a { color: white; padding: 10px; text-decoration: none; }
+    .hamburger { display: none; font-size: 24px; color: white; cursor: pointer; }
+
+    @media (max-width: 600px) {
+      nav a { display: none; }
+      .hamburger { display: block; }
+      .menu.open { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <b style="color:white;">MyWebsite</b>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <span class="hamburger" onclick="toggle()">☰</span>
+  </nav>
+
+  <div class="menu" id="menu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <script>
+    function toggle() {
+      menu.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

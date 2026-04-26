@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; padding: 40px; }
+    .item { margin: 10px 0; }
+    button { padding: 8px 15px; cursor: pointer; }
+    h3 { color: green; }
+  </style>
+</head>
+<body>
+
+  <h2>Shopping Cart</h2>
+
+  <div class="item">
+    <span>Apple - ₹50</span>
+    <button onclick="update('a', -1)">-</button>
+    <span id="a">0</span>
+    <button onclick="update('a', 1)">+</button>
+  </div>
+
+  <div class="item">
+    <span>Banana - ₹20</span>
+    <button onclick="update('b', -1)">-</button>
+    <span id="b">0</span>
+    <button onclick="update('b', 1)">+</button>
+  </div>
+
+  <h3 id="total">Total: ₹0</h3>
+
+  <script>
+    let qty = { a: 0, b: 0 };
+    let price = { a: 50, b: 20 };
+
+    function update(item, val) {
+      qty[item] += val;
+      if (qty[item] < 0) qty[item] = 0;
+      document.getElementById(item).innerHTML = qty[item];
+      total.innerHTML = "Total: ₹" + 
+      (qty.a * price.a + qty.b * price.b);
+    }
+  </script>
+
+</body>
+</html>

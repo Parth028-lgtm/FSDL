@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop List</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 200px;
+            margin: auto;
+        }
+
+        li {
+            padding: 10px;
+            margin: 5px;
+            background: lightgray;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Drag and Drop List</h2>
+
+<ul id="list">
+    <li draggable="true">Item 1</li>
+    <li draggable="true">Item 2</li>
+    <li draggable="true">Item 3</li>
+    <li draggable="true">Item 4</li>
+</ul>
+
+<script>
+
+let draggedItem = null;
+
+let items = document.querySelectorAll("#list li");
+
+items.forEach(function(item) {
+
+    // when drag starts
+    item.addEventListener("dragstart", function() {
+        draggedItem = this;
+    });
+
+    // allow drop
+    item.addEventListener("dragover", function(e) {
+        e.preventDefault();
+    });
+
+    // when dropped
+    item.addEventListener("drop", function() {
+        let list = document.getElementById("list");
+        list.insertBefore(draggedItem, this);
+    });
+
+});
+
+</script>
+
+</body>
+</html>

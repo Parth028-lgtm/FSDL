@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                text-align : center;
+                font-family: sans-serif;
+                padding: 30px;
+            }
+            h1{
+                font-size: 40px;
+            }
+            button{
+                padding: 10px;
+                margin: 5px;
+                cursor: pointer;
+                font-size: 18px;
+            }
+        </style>
+    </head> 
+    <body?>
+        <h2>Stopwatch</h2>
+        <h1 id ="display">00:00:00</h1>
+        <button onclick="StartWatch()">Start</button>
+        <button onclick="StopWatch()">Stop</button>
+        <button onclick="ResetWatch()">Reset</button>
+        <script>
+            let h=0, m=0, s=0, t=null;
+            function StartWatch(){
+                if(!t){
+                    t = setInterval(() =>{
+                        s++;
+                        if(s == 60){s = 0; m++}
+                        if(m == 60){m = 0; h++}
+                        display.innerHTML = pad(h) + ":" + pad(m) + ":" + pad(s);
+                    }, 1000);
+                    }
+                }
+            function StopWatch(){
+                clearInterval(t);
+                t = null;
+            }
+
+            function ResetWatch(){
+                StopWatch();
+                h = 0; m=0; s=0;
+                display.innerHTML = "00:00:00";
+            }
+             function pad(n) {
+      return n < 10 ? "0" + n : n;
+    }
+
+        </script>
+    </body>
+</html>
